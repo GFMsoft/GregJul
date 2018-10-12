@@ -1,4 +1,4 @@
-; Ferdiannd Marx - GFMSOFT - 11.10.2018 - 1.2
+; Ferdiannd Marx - GFMSOFT - 11.10.2018 - 1.2.1
 ; Usage: _Dateumrechnen(DD.MM.YYYY)
 
 
@@ -32,7 +32,7 @@ func _DATEumrechnen($DATE)
 	Local $sk=0,$mk,$LT,$LJ,$N400,$split, $FinalDATE
 
 	if StringInStr($date,".")=false Then
-		Return MsgBox(16,"Fehler","Das eigegebene Datum stimmt nicht.")
+		Return MsgBox(16,"Fehler","Das eingegebene Datum stimmt nicht.")
 	EndIf
 
 	;Eingehende Daten korrekt auf die Vars aufteilen
