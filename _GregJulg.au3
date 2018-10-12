@@ -1,4 +1,4 @@
-; Ferdiannd Marx - GFMSOFT - 11.10.2018 - 1.2.1
+; Ferdiannd Marx - GFMSOFT - 11.10.2018 - 1.2.3
 ; Usage: _Dateumrechnen(DD.MM.YYYY)
 
 
@@ -71,7 +71,7 @@ func _DATEumrechnen($DATE)
 	$n400 = $LJ/400
 
 
-	global $Wert, $rest
+	Local $Wert, $rest
 
 	if $n400 <> Floor($n400) Then
 		;Da ein Rest vorhanden ist muss dieser bestimmt werden
