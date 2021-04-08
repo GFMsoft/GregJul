@@ -3,11 +3,10 @@
 
 
 ;example
-Global $DATE
+Global $DATE,$FinalDATE
 $DATE="05.05.2005"
 _DATEumrechnen($DATE)
-
-
+consolewrite(FinalDATE&@crlf)
 
 func _DATEumrechnen($DATE)
 
@@ -18,7 +17,7 @@ func _DATEumrechnen($DATE)
 	;~ http://de.wikipedia.org/wiki/Umrechnung_zwischen_julianischem_Datum_und_gregorianischem_Kalender
 
 	;~ SK - Schaltjahr beachten
-	;~  SK = 1    (für Schaltjahre, wenn der Monat später als März liegt (M>2))
+	;~  SK = 1    (fÃ¼r Schaltjahre, wenn der Monat spÃ¤ter als MÃ¤rz liegt (M>2))
 	;~  SK = 0    (sonst)
 	;~ Die Monatskorrektur (MK) ergibt sich aus der Tabelle:
 
@@ -26,10 +25,10 @@ func _DATEumrechnen($DATE)
 	;~  ----------------------     ----------------------     ----------------------
 	;~   1    -1    Januar          5    -1    Mai             9    +2    September
 	;~   2     0    Februar         6     0    Juni           10    +2    Oktober
-	;~   3    -2    März            7     0    Juli           11    +3    November
+	;~   3    -2    MÃ¤rz            7     0    Juli           11    +3    November
 	;~   4    -1    April           8    +1    August         12    +3    Dezember
 ;~ ##############################################################################
-	Local $sk=0,$mk,$LT,$LJ,$N400,$split, $FinalDATE
+	Local $sk=0,$mk,$LT,$LJ,$N400,$split
 
 	if StringInStr($date,".")=false Then
 		Return MsgBox(16,"Fehler","Das eingegebene Datum stimmt nicht.")
@@ -110,7 +109,7 @@ func _DATEumrechnen($DATE)
 	$rest=0
 
 	if $n4 <> Floor($n4) Then
-		;Rest ermitteln FÜR N1
+		;Rest ermitteln FÃœR N1
 		$wert=Floor($n4)*4
 		$rest=$r100 - $wert
 	Else
@@ -124,5 +123,5 @@ func _DATEumrechnen($DATE)
 	$JD = $jd0 + Floor($n400)*146097+Floor($n100)*36524+Floor($n4)*1461+$n1*365+$LT
 
 	$FinalDATE=$JD
-	Return ConsoleWrite($FinalDATE&@CRLF)
+	Return $FinalDATE
 EndFunc
